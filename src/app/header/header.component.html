@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="darkTheme" [ngClass]="{ 'theme-light': setDark }">
+      <h2 tabindex="1" aria-label="heading for app">Images</h2>
+
+      <div class="spacer"></div>
+
+      <div>
+        <button
+          id="log"
+          [routerLink]="'/login'"
+          tabindex="1"
+          aria-label="Login"
+          *ngIf="!isAuthenticated"
+        >
+          Sign in
+        </button>
+        &nbsp; &nbsp;
+        <button id="log" [routerLink]="'/signup'" aria-label="SignUP" *ngIf="!isAuthenticated">
+          Sign up
+        </button>
+        &nbsp; &nbsp;
+        <button class="logout" (click)="logout()" aria-label="LogOut" *ngIf="isAuthenticated">
+          Log Out
+        </button>
+      </div>
+      <span></span>
+      <label class="switch">
+        <input type="checkbox" checked aria-label="change theme" (click)="onChangeToggle()" />
+        <span class="slider round"></span>
+      </label>
+    </header>
+  </body>
+</html>

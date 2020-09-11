@@ -1,0 +1,43 @@
+<div class="login">
+  <div *ngIf="errorMessage" class="errMsg">
+    {{ errorMessage }}
+  </div>
+  <form id="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h3>Login Form</h3>
+
+    <label for="email"><b>Username</b> </label>
+    <input
+      formControlName="email"
+      type="text"
+      name="email"
+      class="Username"
+      placeholder=" Enter Email"
+      aria-label="username"
+    />
+    <span *ngIf="submitted && form.email.errors" class="errMsg">
+      <span *ngIf="form.email.errors.required" class="errMsg">Email is required</span>
+    </span>
+
+    <br />
+    <br />
+    <label for="password"><b>Password </b> </label>
+    <input
+      formControlName="password"
+      type="Password"
+      name="password"
+      class="Username"
+      placeholder="Enter Password"
+      aria-label="password"
+    />
+    <span *ngIf="submitted && form.password.errors" class="errMsg">
+      <span *ngIf="form.password.errors.required" class="errMsg">Password is required</span>
+    </span>
+
+    <br />
+    <br />
+    <button type="submit" name="log" id="log" value="Log In ">
+      Log In
+    </button>
+    <br /><br />
+  </form>
+</div>
